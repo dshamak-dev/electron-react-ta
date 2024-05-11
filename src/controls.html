@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog Controls</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      html {
+        background-color: #e8dfdd;
+        font-size: 22px;
+      }
+
+      .catalog-button {
+        --size: 64px;
+        --color: black;
+        --offset: 16px;
+
+        all: unset;
+
+        position: fixed;
+        top: 50%;
+        cursor: pointer;
+      }
+
+      .catalog-button.previous,
+      .catalog-button.next {
+        border: var(--size) solid transparent;
+        transform: translateY(-50%);
+      }
+      .catalog-button.previous {
+        left: var(--offset);
+        margin-left: calc(var(--size) * -1);
+        border-right-color: var(--color);
+      }
+      .catalog-button.next {
+        right: var(--offset);
+        margin-right: calc(var(--size) * -1);
+        border-left-color: var(--color);
+      }
+      .catalog-button:hover {
+        --color: #363636;
+      }
+      .catalog-button:active {
+        --color: white;
+      }
+
+      .catalog-button.more {
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        padding: 0.5rem 1rem;
+        background: var(--color);
+      }
+      .catalog-button.more:before {
+        content: "load more";
+        mix-blend-mode: difference;
+        color: white;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button class="catalog-button previous" onclick="handlePrev()"></button>
+      <button class="catalog-button more" onclick="handleLoadMore()"></button>
+      <button class="catalog-button next" onclick="handleNext()"></button>
+    </main>
+    <script defer>
+      function handlePrev() {
+        window.electron.moveSlide(-1);
+      }
+      function handleNext() {
+        window.electron.moveSlide(1);
+      }
+      function handleLoadMore() {
+        window.electron.loadMore();
+      }
+    </script>
+  </body>
+</html>
