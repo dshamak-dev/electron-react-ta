@@ -8,8 +8,7 @@
     "dev": "webpack-dev-server --mode development",
     "build": "webpack --mode production --env production",
     "electron-start": "electron electron.js",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "npm run build && electron-forge make"
   },
   "keywords": [],
   "author": "",
