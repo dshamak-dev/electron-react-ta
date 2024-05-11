@@ -3,7 +3,7 @@
 ## Commands
 
 ### npm run make
-> Build electron app in in **out -> make** folder using build in **dist** folder 
+> Build electron app in **out -> make** folder using build in **dist** folder 
 
 ### npm start
 > Instal dependencies, build and run electron
